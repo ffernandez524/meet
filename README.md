@@ -10,19 +10,19 @@ I should be able to show or hide an event’s details
 So that only the detailed data that I am interested in is shown on the page.
 
 ### Scenario 1: An event element is collapsed by default
-    o	Given a user has not expanded any events
-    o	When the page loads
-    o	Then events should load collapsed by default
+    o Given a user has not expanded any events
+    o When the page loads
+    o Then events should load collapsed by default
 
 ### Scenario 2: User can expand an event to see its details
-    o	Given the user chooses an event
-    o	When they click on the event
-    o	Then the event expands to show more details
+    o Given the user chooses an event
+    o When they click on the event
+    o Then the event expands to show more details
 
 ### Scenario 3: User can collapse an event to hide its details
-    o	Given the user is finished viewing an event
-    o	When they click the collapse button
-    o	Then the event collapses and the user can continue browsing
+    o Given the user is finished viewing an event
+    o When they click the collapse button
+    o Then the event collapses and the user can continue browsing
 
 ## FEATURE 3: SPECIFY NUMBER OF EVENTS
 As a user,
