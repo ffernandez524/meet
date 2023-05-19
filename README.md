@@ -66,7 +66,6 @@ So that I may make better use of the app’s functions
 
 
 ## Serverless Functions
-
 Serverless functions in the meet app will be used for the following:
     o Mock API hosting and data retrieval
     o OAUTH Client authorization and authentication
