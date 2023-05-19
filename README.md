@@ -64,8 +64,7 @@ So that I may make better use of the app’s functions
     o When they view the main page
     o Then they can view a chart which shows the number of events in each city
 
-
-## Serverless Functions
+### Serverless Functions
 Serverless functions in the meet app will be used for the following:
     o Mock API hosting and data retrieval
     o OAUTH Client authorization and authentication
