@@ -71,3 +71,10 @@ React
 NodeJS
 
 Bootstrap
+
+## Serverless Functions
+
+Serverless functions in the meet app will be used for the following:
+    o User authentication
+    o API Data retrieval (city events from Google Calendar)
+    o Database storage for user data as well as data retrieved from API
