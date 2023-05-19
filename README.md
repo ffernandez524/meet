@@ -64,6 +64,13 @@ So that I may make better use of the app’s functions
     o When they view the main page
     o Then they can view a chart which shows the number of events in each city
 
+
+## Serverless Functions
+
+Serverless functions in the meet app will be used for the following:
+    o Mock API hosting and data retrieval
+    o OAUTH Client authorization and authentication
+
 ## Dependencies
 
 React
@@ -71,10 +78,3 @@ React
 NodeJS
 
 Bootstrap
-
-## Serverless Functions
-
-Serverless functions in the meet app will be used for the following:
-    o User authentication
-    o API Data retrieval (city events from Google Calendar)
-    o Database storage for user data as well as data retrieved from API
