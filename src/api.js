@@ -24,9 +24,9 @@ export const getAccessToken = async () => {
       const results = await axios.get(
         'https://yre4renf87.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url'
       );
-      const { authURL } = results.data;
-      console.log(authURL);
-      return (window.location.href = authURL);
+      console.log('auth url: ' + results);
+      const { authUrl } = results.data;
+      return (window.location.href = authUrl);
     };
     return code && getToken(code);
   };
@@ -49,11 +49,11 @@ export const getEvents = async () => {
     NProgress.done();
     return mockData;
   };
-
   const token = await getAccessToken();
 
   if (token) {
     removeQuery();
+    
     const url = 'https://yre4renf87.execute-api.us-east-1.amazonaws.com/dev/api/get-events' + '/' + token;
     const result = await axios.get(url);
     if (result.data) {
