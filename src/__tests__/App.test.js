@@ -67,5 +67,5 @@ describe('<App /> integration', () => {
         const allEvents = await getEvents();
         expect(AppWrapper.state('events')).toEqual(allEvents);
         AppWrapper.unmount();
-    });    
+    });
 });

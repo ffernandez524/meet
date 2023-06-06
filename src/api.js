@@ -24,7 +24,6 @@ export const getAccessToken = async () => {
       const results = await axios.get(
         'https://yre4renf87.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url'
       );
-      console.log('auth url: ' + results);
       const { authUrl } = results.data;
       return (window.location.href = authUrl);
     };
@@ -101,8 +100,3 @@ export const extractLocations = (events) => {
   var locations = [...new Set(extractLocations)];
   return locations;
 };
-
-
-
-
-

@@ -17,17 +17,20 @@ describe('<Event /> component', () => {
     });
 
     test('details rendered', () => {
-        expect(EventWrapper.find('li.location').text()).toBe(event.location);
-        expect(EventWrapper.find('li.dateTime').text()).toBe(event.start.dateTime + ' to ' + event.end.dateTime);
-        expect(EventWrapper.find('li.description').text()).toBe(event.description);
+        EventWrapper.setState({ isCollapsed: true });
+        expect(EventWrapper.find('p.location').text()).toBe(event.location);
+        expect(EventWrapper.find('p.eventStart').text()).toBe('Begins: ' + new Date(event.start.dateTime).toString());
+        expect(EventWrapper.find('p.eventEnd').text()).toBe('Ends: ' + new Date(event.end.dateTime).toString());
+        expect(EventWrapper.find('.description').text()).toBe(event.description);
     });
 
     test('event is collapsed by default', () => {
+        EventWrapper.setProps({});
         expect(EventWrapper.state('isCollapsed')).toBe(true);
     });
 
-    test('when summary is clicked, sets isCollapsed to false', () => {
-        EventWrapper.find('h2.summary').simulate('click');
+    test('when details button is clicked, sets isCollapsed to false', () => {
+        EventWrapper.find('.details-btn').simulate('click');
         expect(EventWrapper.state('isCollapsed')).toBe(false);
     });
 });

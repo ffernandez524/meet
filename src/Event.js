@@ -16,17 +16,14 @@ class Event extends Component {
     
     return (
       <div className='event'>
-        <h2 
-          className='summary'
-          onClick={() => this.handleCollapse()}
-          >{ event.summary }</h2>
+        <h2 className='summary'>{ event.summary }</h2>
+        <p className='location'>{ event.location }</p>
+        <p className='eventStart'>Begins: {new Date(event.start.dateTime).toString()}</p>
+        <p className='eventEnd'>Ends: {new Date(event.end.dateTime).toString()}</p>
         { this.state.isCollapsed ? (
-          <ul className='eventDetails'>            
-            <li className='location'>{ event.location }</li>
-            <li className='dateTime'>{ event.start.dateTime } to {event.end.dateTime}</li>
-            <li className='description'>{ event.description }</li>
-          </ul>
-        ) : "" }                              
+          <p className='description'>{ event.description }</p>
+        ) : "" }
+        <button className='details-btn' onClick={() => this.handleCollapse()}>Toggle Details</button>                              
       </div>
     );
   }

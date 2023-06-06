@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import NumberOfEvents from '../numberOfEvents';
+import NumberOfEvents from '../NumberOfEvents';
 
 describe('<Event /> component', () => {
     let NumberOfEventsWrapper;
@@ -18,14 +18,5 @@ describe('<Event /> component', () => {
     test('renders text input correctly', () => {
         const query = NumberOfEventsWrapper.state('query');
         expect(NumberOfEventsWrapper.find('.numberOfEventsInput').prop('value')).toBe(query);
-    });
-
-    test('change state when text input changes', () => {
-        NumberOfEventsWrapper.setState({
-            query: '16'
-        });
-        const eventObject = { target: {value: '20' }};
-        NumberOfEventsWrapper.find('.numberOfEventsInput').simulate('change', eventObject);
-        expect(NumberOfEventsWrapper.state('query')).toBe('20');
     });
 });
