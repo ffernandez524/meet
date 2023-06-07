@@ -20,9 +20,8 @@ class Event extends Component {
         <p className='location'>{ event.location }</p>
         <p className='eventStart'>Begins: {new Date(event.start.dateTime).toString()}</p>
         <p className='eventEnd'>Ends: {new Date(event.end.dateTime).toString()}</p>
-        { this.state.isCollapsed ? (
-          <p className='description'>{ event.description }</p>
-        ) : "" }
+        { this.state.isCollapsed ? ( "" ) 
+        : <p className='description'>{ event.description }</p> }
         <button className='details-btn' onClick={() => this.handleCollapse()}>Toggle Details</button>                              
       </div>
     );

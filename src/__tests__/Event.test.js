@@ -17,15 +17,15 @@ describe('<Event /> component', () => {
     });
 
     test('details rendered', () => {
-        EventWrapper.setState({ isCollapsed: true });
+        EventWrapper.setState({ isCollapsed: false });
         expect(EventWrapper.find('p.location').text()).toBe(event.location);
         expect(EventWrapper.find('p.eventStart').text()).toBe('Begins: ' + new Date(event.start.dateTime).toString());
         expect(EventWrapper.find('p.eventEnd').text()).toBe('Ends: ' + new Date(event.end.dateTime).toString());
         expect(EventWrapper.find('.description').text()).toBe(event.description);
+        EventWrapper.setState({ isCollapsed: true });
     });
 
     test('event is collapsed by default', () => {
-        EventWrapper.setProps({});
         expect(EventWrapper.state('isCollapsed')).toBe(true);
     });
 
