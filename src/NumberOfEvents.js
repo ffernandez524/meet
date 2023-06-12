@@ -26,7 +26,6 @@ class NumberOfEvents extends Component {
     render() {
         return (
             <div className='numberOfEvents'>
-                <ErrorAlert text={this.state.errorText}></ErrorAlert>
                 <input 
                     className='numberOfEventsInput'
                     type='number'
@@ -35,6 +34,7 @@ class NumberOfEvents extends Component {
                     value={this.state.query}
                     onChange={this.handleInputChanged}
                 />
+                <ErrorAlert text={this.state.errorText}></ErrorAlert>
             </div>
         );
     }
