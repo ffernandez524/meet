@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { InfoAlert } from './Alert';
 class CitySearch extends Component {
   state = {
-    query: '',
+    query: 'all',
     suggestions: [],
     infoText: '',
     showSuggestions: undefined
@@ -42,7 +42,7 @@ class CitySearch extends Component {
   render() {
     return (
       <div className='CitySearch'>
-        <InfoAlert text={this.state.infoText}></InfoAlert>
+        
         <input
           type='text'
           className='city'
@@ -51,7 +51,11 @@ class CitySearch extends Component {
           onFocus={() => { this.setState({ showSuggestions: true }) }}
         />
         <ul className='suggestions' style={ this.state.showSuggestions ? {}: { display: 'none' }}>
+          <li>
+            <InfoAlert text={this.state.infoText}></InfoAlert>
+          </li>          
             {this.state.suggestions.map((suggestion) => (
+              
               <li 
               key={suggestion}
               onClick={() => this.handleItemClicked(suggestion)}
