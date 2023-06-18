@@ -20,9 +20,10 @@ class App extends Component {
 
   async componentDidMount() {
     this.mounted = true;
+    const accessToken = localStorage.getItem('access_token');
+    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
     const searchParams = new URLSearchParams(window.location.search);
-    const code = searchParams.get('code');
-    var isTokenValid;
+    const code = searchParams.get('code');    
     
     if(!navigator.onLine || window.location.href.startsWith('http://localhost')) {
       getEvents().then((events) => {
@@ -32,19 +33,16 @@ class App extends Component {
           locations: extractLocations(events)
         });
       });      
-    } else {
-      const accessToken = localStorage.getItem('access_token');
-      isTokenValid = (await checkToken(accessToken)).error ? false : true;
-      this.setState({ showWelcomeScreen: !(code || isTokenValid) });
-    }    
-    
-    if ((code || isTokenValid) && this.mounted) {
-      getEvents().then((events) => {
-        if(this.mounted) {
-          this.setState({ events: events.slice(0, this.state.numberOfEvents), locations: extractLocations(events) });
-        }      
-      });
-    }    
+    } else {   
+      this.setState({ showWelcomeScreen: !(code || isTokenValid) }); 
+      if ((code || isTokenValid) && this.mounted) {        
+        getEvents().then((events) => {
+          if(this.mounted) {
+            this.setState({ events: events.slice(0, this.state.numberOfEvents), locations: extractLocations(events) });
+          }      
+        });
+      } 
+    }       
   }
 
   componentWillUnmount() {
@@ -75,7 +73,6 @@ class App extends Component {
     if (this.state.showWelcomeScreen === undefined) {
       return <div className='App' />;
     }
-
     return (
       <div className="App">
         <InfoAlert text={this.state.infoText}></InfoAlert>
